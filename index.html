@@ -2,12 +2,36 @@
 <html lang="en">
 <head>
     <title>Document</title>
+    <style>
+        body {background-color: powderblue;
+            width: 500px;
+            padding-left: 50px;
+        }
+        
+    </style>
 </head>
 <body>
 
     <h1>Bestilling av kinobiletter</h1>
-    <label for="film">Velg Film: </label>
-    <input type="text" onChange="visNavn(this.value)" id="film"/>
+<div>
+    <label for="film">Velg Film: </label> <br>
+    <label for="Antall">Antall </label><br>
+    <label for="fornavn">Fornavn </label><br>
+    <label for="etternavn">Etternavn </label><br>
+    <label for="tlf">Telefonnr</label><br>
+    <label for="epost">Epost </label><br>
+  
+</div>
+
+<div>
+    <input type="text" onChange="visNavn(this.value)" id="film"/><br>
+    <input type="text" onChange="visNavn(this.value)" id="antall"/><br>
+    <input type="text" onChange="visNavn(this.value)" id="fornavn"/><br>
+    <input type="text" onChange="visNavn(this.value)" id="etternavn"/><br>
+    <input type="text" onChange="visNavn(this.value)" id="tlf"/><br>
+    <input type="text" onChange="visNavn(this.value)" id="epost"/><br>
+
+</div>
 
 <script>
 
