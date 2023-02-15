@@ -35,21 +35,84 @@
 </div>
 
 <div class="boxes">
-    <input type="text" onChange="visNavn(this.value)" id="film"/><br><br>
-    <input type="text" onChange="visNavn(this.value)" id="antall"/><br>
-    <input type="text" onChange="visNavn(this.value)" id="fornavn"/><br>
-    <input type="text" onChange="visNavn(this.value)" id="etternavn"/><br>
-    <input type="text" onChange="visNavn(this.value)" id="tlf"/><br>
-    <input type="text" onChange="visNavn(this.value)" id="epost"/><br>
+    <input type="text" id="film"/><br><br>
+    <input type="text" id="antall"/><br>
+    <input type="text" id="fornavn"/><br>
+    <input type="text" id="etternavn"/><br>
+    <input type="text" id="tlf"/><br>
+    <input type="text" id="epost"/><br>
 
 </div>
 
 <div class="nederst">
-<button>Kjøp billett</button>
-<h2> Alle billetter</h2>
-<button>Slett alle billettene</button>
+
+    
+    <button onClick="lagObjekt()">Kjøp billett</button>
+
+    <h2> Alle billetter</h2>
+
+    <!-- Her skal alle billetter listes ut-->
+    <div id="alleBillettene">ut</div>
+
+    <!--Knapp som tømmer array-->
+    <button onClick="emptyArray">Slett alle billettene</button>
 
 </div>
-<script:src = “script.js”></script>
+<script type="application/javascript">
+// NB: Husk å flytte til egen fil
+
+
+    // kjøp billett knapp
+    function lagObjekt(){
+        try {
+            /* 
+            1. sjekk for at alle felter inneholder noe
+            2. så skal billetten lagres som et objekt i array
+             */
+            const billettene = [];
+            let billett = {
+                antall: "",
+                fornavn: "",
+                etternavn: "",
+                telefonnr: "",
+                epost: ""
+            };
+            billett[0] = document.getElementById("film").innerText;
+            billett[1] = document.getElementById("antall").innerText;
+            billett[2] = document.getElementById("fornavn").innerText;
+            billett[3] = document.getElementById("etternavn").innerText;
+            billett[4] = document.getElementById("tlf").innerText;
+            billett[5] = document.getElementById("epost").innerText;
+
+            billettene.push(billett);
+           
+            //3. Deretter skal arrayet listes ut under alle billetter
+            
+            let ut ="";
+            for(let i in billettene){
+                ut += "fornavn: "+ billettene[i].fornavn+", "+
+                      "Etternavn: "+ billettene[i].etternavn+", "+
+                       "antall: "+ billettene[i].antall+", "+
+                      "tlf: "+ billettene[i].telefonnr+", "+
+                     "epost: "+ billettene[i].epost+", <br/>";
+            }            
+            
+            document.getElementById("alleBillettene").innerHTML = ut;
+            /*4. input feltene skal blankes slik at det er klart for ny billett
+            nyBillett += billett; */
+
+
+        } catch{
+            document.getElementById("alleBillettene").innerHTML="<p>Feilmelding: Skriv inn i alle feltene</p>";
+        }
+    }
+
+    // slett billetter knapp. tømme array
+    function emptyArray(){
+       billettene.clear();
+    }
+    
+
+</script>
 </body>
 </html>
